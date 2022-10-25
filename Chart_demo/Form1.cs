@@ -18,7 +18,7 @@ namespace Chart_demo
     public partial class Form1 : Form
     {
         static bool _continue;
-        static SerialPort mySerialPort  ;
+        static SerialPort mySerialPort;
 
         // 委派(方法類別)
         public delegate void UART_Handler(string message);
@@ -53,10 +53,38 @@ namespace Chart_demo
             chart1.Series[0].BorderWidth = 3;
 
             chart1.ChartAreas[0] = chtArea; // chart new 出來時就有內建第一個chartarea
+
+            ChartArea chtArea2 = new ChartArea("ViewArea");
+            chtArea2.AxisX.Minimum = 0; //X軸數值從0開始
+            chtArea2.AxisX.ScaleView.Size = 520; //設定視窗範圍內一開始顯示多少點
+            chtArea2.AxisX.Interval = 4;
+            //chtArea.AxisX.LineWidth = 1;
+            chtArea2.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
+            chtArea2.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All; //設定scrollbar
+            //chtArea.AxisY.Interval = 2000;
+            chtArea2.InnerPlotPosition.Auto = false;//(false,90,99,1,2);
+            chtArea2.InnerPlotPosition.Height = 90;
+            chtArea2.InnerPlotPosition.Width = 99;
+            chtArea2.InnerPlotPosition.X = 1;
+            chtArea2.InnerPlotPosition.Y = 2;
+            chart2.Series[0].Color = Color.DarkBlue;
+            chart2.Series[0].BorderWidth = 2;
+
+            chart2.ChartAreas[0] = chtArea2;
         }
         private void txt_update(string message)
         {
-            this.Invoke(new MethodInvoker(delegate () { textBox1.Text += message; }));
+            string[] data = message.Split(',');
+
+            if (data[0] == "FFT")
+            {
+                this.Invoke(new MethodInvoker(delegate () { textBox1.Text += data[1]; }));
+            }
+            if (data[0] == "SIG")//signal
+            {
+                this.Invoke(new MethodInvoker(delegate () { txt_signal.Text += data[1]; }));
+            }
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -69,7 +97,7 @@ namespace Chart_demo
             for (int i = 0; i < 720; i++)
             {
 
-                chart1.Series[0].Points.AddXY(i, Math.Sin(i * 2 * Math.PI / 360)*2000);
+                chart1.Series[0].Points.AddXY(i, Math.Sin(i * 2 * Math.PI / 360) * 2000);
 
                 //  chart1.Series[1].Points.AddXY(i, Math.Cos(i * 2 * Math.PI / 360));
             }
@@ -79,7 +107,7 @@ namespace Chart_demo
         {
 
             chart1.Series[0].Points.Clear();
-            
+
             if (string.IsNullOrEmpty(textBox1.Text))
                 return;
 
@@ -98,7 +126,7 @@ namespace Chart_demo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // textBox1.Text = "93.351288\r\n245.811234\r\n167.057419\r\n147.193054\r\n265.608948\r\n237.697052\r\n398.920227\r\n135.341751\r\n87.22493";
+            // textBox1.Text = "93.351288\r\n245.811234\r\n167.057419\r\n147.193054\r\n265.608948\r\n237.697052\r\n398.920227\r\n135.341751\r\n87.22493";
         }
         private void seril_ini()
         {
@@ -114,13 +142,14 @@ namespace Chart_demo
             mySerialPort.DataBits = 8;
             mySerialPort.Handshake = Handshake.None;
             mySerialPort.RtsEnable = true;
-
-            mySerialPort.Open();
-            readThread.Start();
-            Console.WriteLine("Press any key to continue...");
-            Console.WriteLine();
-            //Console.ReadKey();
-            //mySerialPort.Close();
+            try
+            {
+                mySerialPort.Open();
+                readThread.Start();
+            }
+            catch
+            {
+            }
         }
 
         public static void Read()
@@ -134,6 +163,25 @@ namespace Chart_demo
                     UART_Event(message);
                 }
                 catch (TimeoutException) { }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            chart2.Series[0].Points.Clear();
+
+            if (string.IsNullOrEmpty(txt_signal.Text))
+                return;
+
+            string[] ContentLines = txt_signal.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries); //忽略空行
+
+
+
+            //chart1.Series[0].
+            for (int i = 0; i < ContentLines.Length; i++)
+            {
+                //ContentLines[i];
+                chart2.Series[0].Points.AddXY(i * 4, ContentLines[i]);
             }
         }
     }
