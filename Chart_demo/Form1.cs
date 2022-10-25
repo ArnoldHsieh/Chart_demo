@@ -183,5 +183,40 @@ namespace Chart_demo
                 chart2.Series[0].Points.AddXY(i, ContentLines[i]);
             }
         }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            chart1.Series[0].Points.Clear();
+
+            if (string.IsNullOrEmpty(textBox1.Text))
+                return;
+
+            string[] ContentLines = textBox1.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries); //忽略空行
+
+
+
+            //chart1.Series[0].
+            for (int i = 0; i < ContentLines.Length; i++)
+            {
+                //ContentLines[i];
+                chart1.Series[0].Points.AddXY(i * 4, ContentLines[i]);
+            }
+
+            chart2.Series[0].Points.Clear();
+
+            if (string.IsNullOrEmpty(txt_signal.Text))
+                return;
+
+        ContentLines = txt_signal.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries); //忽略空行
+
+
+
+            //chart1.Series[0]
+            for (int i = 0; i < ContentLines.Length; i++)
+            {
+                //ContentLines[i];
+                chart2.Series[0].Points.AddXY(i, ContentLines[i]);
+            }
+        }
     }
 }

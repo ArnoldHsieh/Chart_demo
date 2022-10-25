@@ -42,6 +42,7 @@ namespace Chart_demo
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txt_signal = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.btn_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
@@ -130,7 +131,7 @@ namespace Chart_demo
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(114, 41);
+            this.button3.Location = new System.Drawing.Point(105, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -138,12 +139,23 @@ namespace Chart_demo
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(186, 41);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(75, 23);
+            this.btn_print.TabIndex = 3;
+            this.btn_print.Text = "draw";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1427, 700);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txt_signal);
             this.Controls.Add(this.textBox1);
@@ -169,6 +181,7 @@ namespace Chart_demo
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.TextBox txt_signal;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_print;
     }
 }
 
