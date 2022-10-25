@@ -121,6 +121,21 @@ namespace Chart_demo
                 chart1.Series[0].Points.AddXY(i * 4, ContentLines[i]);
             }
 
+            chart2.Series[0].Points.Clear();
+
+            if (string.IsNullOrEmpty(txt_signal.Text))
+                return;
+
+            ContentLines = txt_signal.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries); //忽略空行
+
+
+
+            //chart1.Series[0]
+            for (int i = 0; i < ContentLines.Length; i++)
+            {
+                //ContentLines[i];
+                chart2.Series[0].Points.AddXY(i, ContentLines[i]);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -165,23 +180,10 @@ namespace Chart_demo
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_clear_Click(object sender, EventArgs e)
         {
-            chart2.Series[0].Points.Clear();
-
-            if (string.IsNullOrEmpty(txt_signal.Text))
-                return;
-
-            string[] ContentLines = txt_signal.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries); //忽略空行
-
-
-
-            //chart1.Series[0]
-            for (int i = 0; i < ContentLines.Length; i++)
-            {
-                //ContentLines[i];
-                chart2.Series[0].Points.AddXY(i, ContentLines[i]);
-            }
+            textBox1.Text = "";
+            txt_signal.Text = "";
         }
     }
 }

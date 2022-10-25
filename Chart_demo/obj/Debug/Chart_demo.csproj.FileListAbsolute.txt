@@ -28,3 +28,13 @@ D:\Desktop\work\Chart_demo\Chart_demo\obj\Debug\Chart_demo.csproj.GenerateResour
 D:\Desktop\work\Chart_demo\Chart_demo\obj\Debug\Chart_demo.csproj.CoreCompileInputs.cache
 D:\Desktop\work\Chart_demo\Chart_demo\obj\Debug\Chart_demo.exe
 D:\Desktop\work\Chart_demo\Chart_demo\obj\Debug\Chart_demo.pdb
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.csproj.AssemblyReference.cache
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.Form1.resources
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.Properties.Resources.resources
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.csproj.GenerateResource.cache
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.csproj.CoreCompileInputs.cache
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.exe
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\obj\Debug\Chart_demo.pdb
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\bin\Debug\Chart_demo.exe.config
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\bin\Debug\Chart_demo.exe
+C:\Users\Arnold_Hsieh\Desktop\401\Chart_demo\Chart_demo\bin\Debug\Chart_demo.pdb
