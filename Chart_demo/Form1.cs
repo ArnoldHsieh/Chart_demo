@@ -56,8 +56,8 @@ namespace Chart_demo
 
             ChartArea chtArea2 = new ChartArea("ViewArea");
             chtArea2.AxisX.Minimum = 0; //X軸數值從0開始
-            chtArea2.AxisX.ScaleView.Size = 520; //設定視窗範圍內一開始顯示多少點
-            chtArea2.AxisX.Interval = 4;
+           // chtArea2.AxisX.ScaleView.Size = 520; //設定視窗範圍內一開始顯示多少點
+            chtArea2.AxisX.Interval = 5;
             //chtArea.AxisX.LineWidth = 1;
             chtArea2.AxisX.IntervalAutoMode = IntervalAutoMode.FixedCount;
             chtArea2.AxisX.ScrollBar.ButtonStyle = ScrollBarButtonStyles.All; //設定scrollbar
@@ -84,7 +84,6 @@ namespace Chart_demo
             {
                 this.Invoke(new MethodInvoker(delegate () { txt_signal.Text += data[1]; }));
             }
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -181,7 +180,7 @@ namespace Chart_demo
             for (int i = 0; i < ContentLines.Length; i++)
             {
                 //ContentLines[i];
-                chart2.Series[0].Points.AddXY(i * 4, ContentLines[i]);
+                chart2.Series[0].Points.AddXY(i, ContentLines[i]);
             }
         }
     }
