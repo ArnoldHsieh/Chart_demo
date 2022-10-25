@@ -87,7 +87,7 @@ namespace Chart_demo
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (var series in chart1.Series)
+            foreach (var series in chart2.Series)
             {
                 series.Points.Clear();
             }
@@ -96,7 +96,7 @@ namespace Chart_demo
             for (int i = 0; i < 720; i++)
             {
 
-                chart1.Series[0].Points.AddXY(i, Math.Sin(i * 2 * Math.PI / 360) * 2000);
+                chart2.Series[0].Points.AddXY(i, Math.Sin(i * 2 * Math.PI / 360) * 2000);
 
                 //  chart1.Series[1].Points.AddXY(i, Math.Cos(i * 2 * Math.PI / 360));
             }
@@ -176,7 +176,7 @@ namespace Chart_demo
 
 
 
-            //chart1.Series[0].
+            //chart1.Series[0]
             for (int i = 0; i < ContentLines.Length; i++)
             {
                 //ContentLines[i];
